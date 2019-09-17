@@ -11,7 +11,22 @@ body {
 }
 
 nav {
-  float: right;
+  position: absolute;
+  right: 10px;
+  top: 46px;
+}
+
+.nav_link {
+  color: white;
+  font-size: 20px;
+  margin: 6px;
+  text-decoration: none;
+  font-family: sans-serif;
+  transition-duration: 0.2s;
+}
+
+.nav_link:hover {
+  color: gold;
 }
 
 #logo_c {
