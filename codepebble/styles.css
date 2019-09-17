@@ -1,6 +1,10 @@
 @font-face {
-  font-family: 'Oswald';
-  src: url('fonts/Oswald/Oswald-VariableFont_wght.ttf');
+    font-family: 'Oswald';
+    src: url('fonts/oswald-variablefont_wght-webfont.woff2') format('woff2'),
+         url('fonts/oswald-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 body {
