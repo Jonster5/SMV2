@@ -14,14 +14,21 @@ body {
   margin: 0;
 }
 
+header {
+  width: 100%;
+  position: fixed;
+  background-color: #1f9387;
+}
+
 nav {
   position: absolute;
+  display: inline;
   right: 10px;
-  top: 26px;
+  top: 32px;
 }
 
 .nav_link {
-  color: #a64244;
+  color: white;
   font-size: 20px;
   margin: 6px;
   text-decoration: none;
@@ -31,6 +38,10 @@ nav {
   border-bottom: solid 3px black;
 }
 
+#m_this {
+  background-color: black;
+}
+
 .nav_link:hover {
   color: gold;
   border-bottom: solid 3px gold;
@@ -38,5 +49,14 @@ nav {
 
 #logo_c {
   font-family: 'Oswald';
-  width: 240px;
+  diplay: inline;
+  width: 300px;
+}
+
+#logo_txt {
+  position: absolute;
+  font-size: 30px;
+  color: white;
+  font-weight: 600;
+  top: 24px;
 }
