@@ -24,7 +24,7 @@ nav {
   position: absolute;
   display: inline;
   right: 10px;
-  top: 32px;
+  top: 24px;
 }
 
 .nav_link {
@@ -58,5 +58,5 @@ nav {
   font-size: 30px;
   color: white;
   font-weight: 600;
-  top: 24px;
+  top: 16px;
 }
