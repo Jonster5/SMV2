@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #1f6d91;
+  background-color: rgb(150, 206, 233);
   width: 100%;
   height: 100%;
   margin: 0;
@@ -21,7 +21,7 @@ nav {
 }
 
 .nav_link {
-  color: white;
+  color: #a64244;
   font-size: 20px;
   margin: 6px;
   text-decoration: none;
