@@ -4,7 +4,13 @@
          url('fonts/oswald-variablefont_wght-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+  font-family: UC;
+  src: url('fonts/UbuntuCondensed-Regular.ttf') format('TrueType');
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
@@ -43,6 +49,22 @@ nav {
 .nav_link:hover {
   color: gold;
   border-bottom: solid 3px gold;
+}
+
+footer {
+  background-color: #4f5659;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  bottom: 0px;
+  text-align: center;
+}
+
+footer span {
+  font-family: UC;
+  color: white;
+  position: relative;
+  top: 10px;
 }
 
 #m_this {

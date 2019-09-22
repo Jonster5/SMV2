@@ -40,5 +40,30 @@
 #title_m_about:hover {
   color: red;
   cursor: pointer;
+}
 
+#about_c {
+  position: absolute;
+  top: 700px;
+  width: 100%;
+  text-align: center;
+  font-family: Oswald;
+  color: white;
+  font-size: 50px;
+}
+
+
+#articles_c {
+  position: absolute;
+  top: 1200px;
+}
+
+article {
+  height: 400px;
+  width: 300px;
+  background-color: white;
+  border: 16px solid darkgrey;
+  border-radius: 10px;
+  z-index: 100;
+  margin: 16px;
 }

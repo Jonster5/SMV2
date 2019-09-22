@@ -6,15 +6,15 @@ let ticking = false;
 let tile1 = document.createElement("img");
 tile1.setAttribute("id", "tile1");
 tile1.setAttribute("src", "./images/bg_tile1.png");
-tile1.setAttribute("style", "position: fixed; top: 100px; left: 16px");
+tile1.setAttribute("style", "position: absolute; top: 100px; left: 16px; z-index: 0;");
 tile1.width = 250;
 tile1.height = 50;
 document.body.appendChild(tile1);
 
 let tile2 = document.createElement("img");
-tile2.setAttribute("id", "tile1");
+tile2.setAttribute("id", "tile2");
 tile2.setAttribute("src", "./images/bg_tile2.png");
-tile2.setAttribute("style", "position: fixed; top: 175px; left: 50px");
+tile2.setAttribute("style", "position: absolute; top: 175px; left: 50px; z-index: 0;");
 document.body.appendChild(tile2);
 
 
@@ -48,7 +48,7 @@ function hslToHex(h, s, l) {
 }
 
 function changeColor(m_colorVal) {
-  let m_color_delta = (m_colorVal/scrollMaxY*65)+35;
+  let m_color_delta = (m_colorVal/scrollMaxY*65)+25;
   document.body.style.backgroundColor = hslToHex(199, 65, 100-m_color_delta);
 }
 
@@ -58,7 +58,6 @@ window.addEventListener('scroll', function(e) {
   if (!ticking) {
     window.requestAnimationFrame(function() {
       changeColor(last_known_scroll_position);
-
       ticking = false;
     });
 
