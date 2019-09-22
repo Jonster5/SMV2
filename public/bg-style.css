@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: rgb(150, 206, 233);
+  background-color: rgb(108, 187, 224);
   width: 100%;
   height: 100%;
   margin: 0;
@@ -18,13 +18,15 @@ header {
   width: 100%;
   position: fixed;
   background-color: #1f9387;
+  height: 75px;
+  z-index: 9999999999999999999999999999999999999999999999999999999999999999999999999999999;
 }
 
 nav {
   position: absolute;
   display: inline;
   right: 10px;
-  top: 24px;
+  top: 20px;
 }
 
 .nav_link {
@@ -38,19 +40,27 @@ nav {
   border-bottom: solid 3px black;
 }
 
-#m_this {
-  background-color: black;
-}
-
 .nav_link:hover {
   color: gold;
   border-bottom: solid 3px gold;
 }
 
+#m_this {
+  background-color: black;
+}
+
+#m_this:hover {
+  color: white;
+  border-bottom: solid 3px black;
+}
+
+
+
 #logo_c {
   font-family: 'Oswald';
   diplay: inline;
-  width: 300px;
+  width: 250px;
+  height: 70px;
 }
 
 #logo_txt {
@@ -58,5 +68,5 @@ nav {
   font-size: 30px;
   color: white;
   font-weight: 600;
-  top: 16px;
+  top: 12px;
 }

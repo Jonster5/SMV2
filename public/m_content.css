@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url('fonts/oswald-variablefont_wght-webfont.woff2') format('woff2'),
+         url('fonts/oswald-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: UC;
+  src: url('fonts/UbuntuCondensed-Regular.ttf') format('TrueType');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#title_c {
+  position: relative;
+  top: 200px;
+  text-align: center;
+  display: block;
+  margin 0 auto;
+  text-align: center;
+}
+
+#title_m_txt {
+  font-family: Oswald;
+  color: Blue;
+  font-weight: 900;
+  font-size: 75px;
+}
+
+#title_m_about {
+  font-family: UC;
+  display: block;
+  font-size: 20px;
+  text-align: center;
+
+  transition-duration: 0.2s;
+}
+
+#title_m_about:hover {
+  color: red;
+  cursor: pointer;
+
+}
