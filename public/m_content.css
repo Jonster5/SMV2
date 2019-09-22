@@ -15,7 +15,6 @@
 
 #title_c {
   position: relative;
-  top: 200px;
   text-align: center;
   display: block;
   margin 0 auto;
@@ -35,7 +34,7 @@
   font-size: 20px;
   text-align: center;
 
-  transition-duration: 0.2s;
+  transition-duration: 0.4s;
 }
 
 #title_m_about:hover {

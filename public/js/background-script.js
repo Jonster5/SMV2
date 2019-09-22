@@ -65,3 +65,5 @@ window.addEventListener('scroll', function(e) {
     ticking = true;
   }
 });
+
+document.getElementById("title_c").style.top = (window.screen.height/2-130).toString() + "px";
