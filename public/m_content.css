@@ -17,7 +17,7 @@
   position: relative;
   text-align: center;
   display: block;
-  margin 0 auto;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -60,7 +60,8 @@
 
 #articles_c {
   position: absolute;
-  top: 1100px;
+  top: 800px;
+  left: 20px;
 }
 
 article {

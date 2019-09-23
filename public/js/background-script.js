@@ -48,8 +48,11 @@ function hslToHex(h, s, l) {
 }
 
 function changeColor(m_colorVal) {
-  let m_color_delta = (m_colorVal/scrollMaxY*65)+25;
-  document.body.style.backgroundColor = hslToHex(199, 65, 100-m_color_delta);
+  //let m_color_delta = (m_colorVal/scrollMaxY*65)+15;
+  let m_color_data = (m_colorVal/scrollMaxY*65)+35;
+  let m_color_delta = 100-m_color_data;
+  if (m_color_delta < 20) m_color_delta = 20;
+  document.body.style.backgroundColor = hslToHex(199, 65, m_color_delta);
 }
 
 window.addEventListener('scroll', function(e) {
