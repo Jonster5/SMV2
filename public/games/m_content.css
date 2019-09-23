@@ -1,0 +1,14 @@
+#title_c {
+  position: relative;
+  text-align: center;
+  display: block;
+  margin 0 auto;
+  text-align: center;
+}
+
+#title_m_txt {
+  font-family: Oswald;
+  color: Blue;
+  font-weight: 900;
+  font-size: 75px;
+}

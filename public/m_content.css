@@ -52,18 +52,50 @@
   font-size: 50px;
 }
 
+#about_txt {
+  font-size: 20px;
+  color: gold;
+  line-height: normal;
+}
 
 #articles_c {
   position: absolute;
-  top: 1200px;
+  top: 1100px;
 }
 
 article {
   height: 400px;
-  width: 300px;
+  width: 270px;
+  display: inline-block;
   background-color: white;
-  border: 16px solid darkgrey;
-  border-radius: 10px;
+  border: 16px solid gold;
+  border-radius: 50px;
   z-index: 100;
-  margin: 16px;
+  margin: 12px;
+  transition-duration: .4s;
+}
+
+.article_title {
+  font-family: Oswald;
+  font-weight: 600;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 0px;
+  color: #990000;
+}
+
+.article_hidden {
+  width: 270px;
+  height: 350px;
+  float: right;
+  margin-top: -6px;
+}
+
+ul.info_l {
+  font-family: UC;
+  font-size: 17px;
+}
+
+li {
+  margin-top: 6px;
 }
