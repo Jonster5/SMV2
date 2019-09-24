@@ -61,14 +61,14 @@
 #articles_c {
   position: absolute;
   top: 800px;
-  left: 20px;
+  left: 0px;
 }
 
 article {
   height: 400px;
   width: 270px;
   display: inline-block;
-  background-color: white;
+  background-color: #434343;
   border: 16px solid gold;
   border-radius: 50px;
   z-index: 100;
@@ -92,9 +92,33 @@ article {
   margin-top: -6px;
 }
 
+button.article_gs {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border: 3px solid #688fe3;
+  background-color: #434343;
+  color: lightgrey;
+  border-radius: 16px;
+  transition-duration: 0.2s;
+  font-family: Oswald;
+  font-size: 20px;
+  right: -32px;
+  bottom: -10px;
+}
+
+button.article_gs:hover {
+  background-color: #688fe3;
+  color: white;
+}
+
 ul.info_l {
+  text-align: left;
+  color: white;
   font-family: UC;
   font-size: 17px;
+  max-width: 200px;
 }
 
 li {

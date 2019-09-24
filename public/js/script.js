@@ -11,3 +11,9 @@ function reset(a) {
   article.style.width = "270px";
   document.getElementById(a_h).setAttribute("style", "display: none;");
 }
+
+function buttons(wo) {
+  switch (wo) {
+    case 1: location.assign("http://www.slidemations.com/tutorials"); break;
+  }
+}
