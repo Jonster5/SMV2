@@ -15,5 +15,7 @@ function reset(a) {
 function buttons(wo) {
   switch (wo) {
     case 1: location.assign("http://www.slidemations.com/tutorials"); break;
+    case 2: location.assign("http://www.slidemations.com/codepebble"); break;
+    case 3: location.assign("http://www.slidemations.com/games"); break;
   }
 }

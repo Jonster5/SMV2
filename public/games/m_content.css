@@ -1,9 +1,7 @@
 #title_c {
-  position: relative;
+  position: absolute;
   text-align: center;
-  display: block;
-  margin 0 auto;
-  text-align: center;
+  width: 100%;
 }
 
 #title_m_txt {
@@ -11,4 +9,17 @@
   color: Blue;
   font-weight: 900;
   font-size: 75px;
+}
+
+#title_m_about {
+  font-family: UC;
+  display: block;
+  font-size: 20px;
+  text-align: center;
+  transition-duration: 0.4s;
+}
+
+#title_m_about:hover {
+  color: red;
+  cursor: pointer;
 }
