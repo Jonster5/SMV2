@@ -30,19 +30,19 @@
   <!--<div id="m_page">-->
     <header>
       <div id="logo_c">
-        <img id="logo" src="images/SM_logo.png" width="48" height="48" style="margin: 12px" />
+        <img id="logo" src="images/SM_logo.png" width="42" height="42" style="margin: 9px" />
         <span id="logo_txt">Slidemations<span>
       </div>
       <nav>
         <a class="nav_link" id="m_this" href="http://www.slidemations.com">Home</a>
         <a class="nav_link" href="http://www.slidemations.com/codepebble">CodePebble</a>
-        <a class="nav_link" href="http://www.slidemations.com/music">Tutorials</a>
+        <a class="nav_link" href="http://www.slidemations.com/tutorials">Tutorials</a>
         <a class="nav_link" href="http://www.slidemations.com/games">Games</a>
       </nav>
     </header>
     <div id="title_c">
       <span id="title_m_txt">Slidemations</span>
-      <a id="title_m_about" onclick="window.scrollTo({top: 630,left: 0,behavior: 'smooth'});">About</a>
+      <a id="title_m_about" onclick="window.scrollTo({top: 650,left: 0,behavior: 'smooth'});">About</a>
     </div>
     <div id="about_c">
       <span>About Slidemations</span>
@@ -52,40 +52,45 @@
       <article id="article1"  style="background-image: url('images/article1_bg.svg') !important; background-repeat: no-repeat;" onmouseenter="expand('article1')" onmouseleave="reset('article1')">
         <h1 class="article_title">HTML5 Game Tutorials</h1>
         <div id="article1_h" class="article_hidden" style="display: none">
-          <span style="margin: 8px; font-family: UC; font-size: 23px; font-weight: 600; color: #346eeb">You will learn:</span>
+          <span class="article_header">You will learn:</span>
           <ul class="info_l">
             <li>Object-oriented JavaScript programming</li>
             <li>Good practices when creating games in any language</li>
           </ul>
-          <span style="margin: 8px; font-family: UC; font-size: 23px; font-weight: 600; color: #346eeb">You will create:</span>
+          <span class="article_header">You will create:</span>
           <ul class="info_l">
             <li>Basic Snake Game</li>
             <li>Ping Pong game</li>
           </ul>
-          <button class="article_gs" onclick="buttons(1);">Get Started</button>
+          <button class="article_gs" id="b_1" onclick="buttons(1); document.getElementById('b_1').blur();">Get Started</button>
         </div>
       </article>
       <article id="article2" style="background-image: url('images/article2_bg.svg') !important; background-repeat: no-repeat;" onmouseenter="expand('article2')" onmouseleave="reset('article2')">
         <h1 class="article_title" style="color: #369c5a !important;">HTML and CSS generators</h1>
         <div id="article2_h" class="article_hidden" style="display: none">
+          <span class="article_header">HTML generator:</span>
           <ul class="info_l">
-
+            <li>generate customizable HTML to help create your webpage</li>
           </ul>
-
-          <button class="article_gs" onclick="buttons(2);">Get Started</button>
+          <span class="article_header">CSS templates:</span>
+          <ul class="info_l">
+            <li>Get pre-made CSS stylesheets to help create your website</li>
+            <li>Choose a theme for you CSS file to come with</li>
+          </ul>
+          <button class="article_gs" id="b_2" onclick="buttons(2); document.getElementById('b_2').blur();">Get Started</button>
         </div>
       </article>
       <article id="article3" style="background-image: url('images/article3_bg.svg') !important; background-repeat: no-repeat;" onmouseenter="expand('article3')" onmouseleave="reset('article3')">
         <h1 class="article_title" style="color: #6d9eeb !important;">Games by Slidemations</h1>
         <div id="article3_h" class="article_hidden" style="display: none;">
-          <span style="margin: 8px; font-family: UC; font-size: 23px; font-weight: 600; color: #346eeb">Here You can:</span>
+          <span class="article_header">Here You can:</span>
           <ul class="info_l">
             <li>Play games made by Slidemations</li>
             <li>Give suggestions for improvements, or update ideas</li>
             <li>Submit your own HTML5 game and it might be posted here</li>
           </ul>
 
-          <button class="article_gs" onclick="buttons(3);">Get Started</button>
+          <button class="article_gs" id="b_3" onclick="buttons(3); document.getElementById('b_3').blur();">Get Started</button>
         </div>
       </article>
     </div>

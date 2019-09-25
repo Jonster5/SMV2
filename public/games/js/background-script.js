@@ -6,7 +6,7 @@ let ticking = false;
 let tile1 = document.createElement("img");
 tile1.setAttribute("id", "tile1");
 tile1.setAttribute("src", "./images/bg_tile1.png");
-tile1.setAttribute("style", "position: absolute; top: 100px; left: 16px; z-index: 0;");
+tile1.setAttribute("style", "position: absolute; top: 80px; left: 16px; z-index: 0;");
 tile1.width = 250;
 tile1.height = 50;
 document.body.appendChild(tile1);
@@ -14,7 +14,7 @@ document.body.appendChild(tile1);
 let tile2 = document.createElement("img");
 tile2.setAttribute("id", "tile2");
 tile2.setAttribute("src", "./images/bg_tile2.png");
-tile2.setAttribute("style", "position: absolute; top: 100px; right: 50px; z-index: 0;");
+tile2.setAttribute("style", "position: absolute; top: 80px; right: 50px; z-index: 0;");
 document.body.appendChild(tile2);
 
 

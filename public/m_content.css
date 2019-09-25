@@ -121,6 +121,14 @@ ul.info_l {
   max-width: 200px;
 }
 
+.article_header {
+  margin: 8px;
+  font-family: UC;
+  font-size: 23px;
+  font-weight: 600;
+  color: #346eeb;
+}
+
 li {
   margin-top: 6px;
 }

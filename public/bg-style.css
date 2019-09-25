@@ -24,7 +24,7 @@ header {
   width: 100%;
   position: fixed;
   background-color: #1f9387;
-  height: 75px;
+  height: 60px;
   z-index: 9999999999999999999999999999999999999999999999999999999999999999999999999999999;
 }
 
@@ -32,7 +32,7 @@ nav {
   position: absolute;
   display: inline;
   right: 10px;
-  top: 20px;
+  top: 12px;
 }
 
 .nav_link {
@@ -87,8 +87,8 @@ footer span {
 
 #logo_txt {
   position: absolute;
-  font-size: 30px;
+  font-size: 25px;
   color: white;
   font-weight: 600;
-  top: 12px;
+  top: 10px;
 }
