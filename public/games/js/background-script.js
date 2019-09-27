@@ -49,7 +49,9 @@ function hslToHex(h, s, l) {
 
 function changeColor(m_colorVal) {
   let m_color_delta = (m_colorVal/scrollMaxY*65)+25;
-  document.body.style.backgroundColor = hslToHex(151, 65, 100-m_color_delta);
+  let m_color_change = 100-m_color_delta;
+  if (m_color_change < 35) m_color_change = 35;
+  document.body.style.backgroundColor = hslToHex(151, 65, m_color_change);
 }
 
 window.addEventListener('scroll', function(e) {

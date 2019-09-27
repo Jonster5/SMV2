@@ -29,15 +29,25 @@
         <span id="logo_txt">Slidemations<span>
       </div>
       <nav>
-        <a class="nav_link" href="http://www.slidemations.com">Home</a>
-        <a class="nav_link" href="http://www.slidemations.com/codepebble">CodePebble</a>
-        <a class="nav_link" href="http://www.slidemations.com/music">Tutorials</a>
-        <a class="nav_link" id="m_this" href="http://www.slidemations.com/games">Games</a>
+        <a class="nav_link" href="../">Home</a>
+        <a class="nav_link" href="../codepebble">CodePebble</a>
+        <a class="nav_link" href="../tutorials">Tutorials</a>
+        <a class="nav_link" id="m_this" href="../games">Games</a>
       </nav>
     </header>
     <div id="title_c">
       <span id="title_m_txt">Games</span>
-      <a id="title_m_about" onclick="location.assign('http://www.slidemations.com/games/directory');">View Games</a>
+      <a id="title_m_about" onclick="window.scrollTo({top: 590,left: 0,behavior: 'smooth'});">View Games</a>
+    </div>
+    <div id="dir_c">
+      <article onclick="location.assign('dir/coinhunt')">
+        <img src="images/dir_bg_1.svg" class="game_img" width="308" height="250" />
+        <span class="img_title">Coin Hunt</span>
+      </article>
+      <article onclick="location.assign('dir/pingpong')">
+        <img src="images/dir_bg_2.svg" class="game_img" width="308" height="250" />
+        <span class="img_title">Ping Pong</span>
+      </article>
     </div>
 
 
