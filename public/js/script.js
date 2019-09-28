@@ -19,3 +19,8 @@ function buttons(wo) {
     case 3: location.assign("/games"); break;
   }
 }
+
+let socket = io.connect('http://localhost');
+socket.on('news', function (data) {
+  console.log(data);
+});
