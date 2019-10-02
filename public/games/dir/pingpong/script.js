@@ -113,7 +113,7 @@ canvas.onmousemove = function(e) {
 
 
 
-    if (y > canvas.height - player.height) y = canvas.height - player.height;
-
-    player.y = y;
+    if (y > canvas.height - player.height / 2) y = canvas.height - player.height / 2;
+    if (y <= 0) y = 0;
+    player.y = y - player.height / 2;
 }
