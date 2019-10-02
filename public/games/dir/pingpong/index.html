@@ -2,68 +2,7 @@
 <html>
 
 <head>
-    <style>
-        @font-face {
-            font-family: 'Oswald';
-            src: url('../../fonts/oswald-variablefont_wght-webfont.woff2') format('woff2'), url('../../fonts/oswald-variablefont_wght-webfont.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: UC;
-            src: url('../../fonts/UbuntuCondensed-Regular.ttf') format('TrueType');
-            font-weight: normal;
-            font-style: normal;
-        }
-        
-        body {
-            background-color: rgb(50, 50, 50);
-            overflow-y: hidden;
-        }
-        
-        #back {
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0);
-            border: 6px solid #688fe3;
-            border-radius: 16px;
-            transition-duration: 0.2s;
-            text-decoration: none;
-            width: 200px;
-            height: 50px;
-            font-size: 20px;
-            color: white;
-            font-family: Oswald;
-            text-align: center;
-            padding-top: 3px;
-            box-sizing: border-box;
-        }
-        
-        img {
-            position: absolute;
-            left: 10px;
-            top: 6px;
-        }
-        
-        #back:hover {
-            background-color: #688fe3;
-        }
-        
-        #Game {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin: -250px;
-        }
-        
-        canvas {
-            width: 500px;
-            height: 500px;
-            background-color: #7d95ad;
-            border-radius: 20px;
-            border: 5px solid black;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 
 <body onload="loop();">
@@ -71,6 +10,8 @@
         <img src="./images/back.svg" width="50" height="25" /> Back
     </a>
     <div id="Game_c">
+        <div id="AIS">AI: 0</div>
+        <div id="PS">Player: 0</div>
         <canvas id="Game" width="500" height="500"></canvas>
     </div>
     <script type="text/javascript" src="script.js"></script>
