@@ -1,0 +1,4 @@
+{
+    "html.format.wrapLineLength": 99999999999999,
+    "css.lint.hexColorLength": "warning"
+}
