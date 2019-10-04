@@ -47,8 +47,9 @@ img {
 #Game {
     position: absolute;
     left: 50%;
-    top: 300px;
-    margin: -250px;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -250px;
 }
 
 #AIS {
@@ -61,7 +62,7 @@ img {
 }
 
 canvas {
-    width: 500px;
+    width: 600px;
     height: 500px;
     background-color: #7d95ad;
     border-radius: 20px;
