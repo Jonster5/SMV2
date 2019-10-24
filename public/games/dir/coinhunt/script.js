@@ -373,7 +373,6 @@ function flowerBurn() {
 	}
 }
 
-
 function runCoin() {
 	scene.remove(coin);
 	coinBox = [];
