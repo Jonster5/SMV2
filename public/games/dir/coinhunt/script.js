@@ -11,7 +11,7 @@ var fpcam;
 // var birdsEye;
 
 function rand(min, max) {
-	return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 var renderer = new THREE.WebGLRenderer();
@@ -28,35 +28,35 @@ window.addEventListener("resize", updateAspect, false);
 
 
 function updateAspect() {
-	//this function is for the chrome app rendering to function properly
-	marker.remove(fpcam);
-	marker.remove(tpcam);
+    //this function is for the chrome app rendering to function properly
+    marker.remove(fpcam);
+    marker.remove(tpcam);
 
-	renderer.setSize(ww, hh);
-	aspect_ratio = ww / hh;
-	tpcam = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 10000);
-	fpcam = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 8000);
-	tpcam.position.z = -1000;
-	tpcam.position.y = 500;
-	tpcam.rotation.y = Math.PI;
-	tpcam.rotation.x = Math.PI / 8;
+    renderer.setSize(ww, hh);
+    aspect_ratio = ww / hh;
+    tpcam = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 10000);
+    fpcam = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 8000);
+    tpcam.position.z = -1000;
+    tpcam.position.y = 500;
+    tpcam.rotation.y = Math.PI;
+    tpcam.rotation.x = Math.PI / 8;
 
-	fpcam.rotation.y = Math.PI;
-	fpcam.position.y = 50;
+    fpcam.rotation.y = Math.PI;
+    fpcam.position.y = 50;
 
-	if (firstPerson == 0) {
-		camera = fpcam;
-		marker.remove(tpcam);
-
-
-	}
-	if (firstPerson == 1) {
-		camera = tpcam;
-		marker.remove(fpcam);
+    if (firstPerson == 0) {
+        camera = fpcam;
+        marker.remove(tpcam);
 
 
-	}
-	marker.add(camera);
+    }
+    if (firstPerson == 1) {
+        camera = tpcam;
+        marker.remove(fpcam);
+
+
+    }
+    marker.add(camera);
 
 }
 
@@ -73,7 +73,7 @@ var yv = 0;
 var death = [];
 var DMP = 75;
 var tc = 25,
-	gs = 400;
+    gs = 400;
 
 var isJumping = false;
 var level = 500;
@@ -89,14 +89,14 @@ var fps;
 
 function requestAnimFrame() {
 
-	if (!lastCalledTime) {
-		lastCalledTime = Date.now();
-		fps = 0;
-		return;
-	}
-	delta = (Date.now() - lastCalledTime) / 1000;
-	lastCalledTime = Date.now();
-	fps = 1 / delta;
+    if (!lastCalledTime) {
+        lastCalledTime = Date.now();
+        fps = 0;
+        return;
+    }
+    delta = (Date.now() - lastCalledTime) / 1000;
+    lastCalledTime = Date.now();
+    fps = 1 / delta;
 }
 
 
@@ -199,22 +199,22 @@ marker.add(left_foot);
 
 
 function createDeath(x, z) {
-	var square = new THREE.Mesh(
-		new THREE.PlaneGeometry(gs, gs),
-		new THREE.MeshLambertMaterial({ color: 0xdd1a1a, emissive: 0x061011 })
-	);
-	scene.add(square);
-	square.rotation.x = -Math.PI / 2;
-	square.position.set(x * gs, -170, z * gs);
+    var square = new THREE.Mesh(
+        new THREE.PlaneGeometry(gs, gs),
+        new THREE.MeshLambertMaterial({ color: 0xdd1a1a, emissive: 0x061011 })
+    );
+    scene.add(square);
+    square.rotation.x = -Math.PI / 2;
+    square.position.set(x * gs, -170, z * gs);
 
-	for (let i = 0; i < death.length; i++) {
-		if (death[i].position.x == square.position.x && death[i].position.z == square.position.z) {
-			death.pop();
-			scene.remove(square);
-		}
-	}
+    for (let i = 0; i < death.length; i++) {
+        if (death[i].position.x == square.position.x && death[i].position.z == square.position.z) {
+            death.pop();
+            scene.remove(square);
+        }
+    }
 
-	return square;
+    return square;
 }
 
 updateAspect();
@@ -224,106 +224,109 @@ var trees = [];
 var rocks = [];
 var newbound;
 var hitbox;
+
 function makeTreeAt(x, z) {
-	// Don't change any code at the start...
-	var trunk = new THREE.Mesh(
-		new THREE.CylinderGeometry(50, 50, 200),
-		new THREE.MeshLambertMaterial({ color: 0xA0522D })
-	);
+    // Don't change any code at the start...
+    var trunk = new THREE.Mesh(
+        new THREE.CylinderGeometry(50, 50, 200),
+        new THREE.MeshLambertMaterial({ color: 0xA0522D })
+    );
 
-	var top = new THREE.Mesh(
-		new THREE.SphereGeometry(150),
-		new THREE.MeshPhongMaterial({ color: 0x228B22 })
-	);
-	top.material.side = THREE.DoubleSide;
-	top.position.y = 185;
-	trunk.add(top);
-
-
-
-	var newbound = new THREE.Mesh(
-		new THREE.CylinderGeometry(150, 150, 380, 20),
-		new THREE.MeshLambertMaterial({ transparent: true, opacity: 0, emissive: 0x0f04ef })
-	);
-	newbound.position.y = 100;
-	trunk.add(newbound);
-
-	var hitbox = new THREE.Mesh(
-		new THREE.CircleGeometry(150, 20),
-		new THREE.MeshLambertMaterial({ transparent: true, opacity: 0 })
-	);
-	hitbox.position.y = -96;
-	hitbox.rotation.x = -Math.PI / 2;
-	trunk.add(hitbox);
-
-	not_allowed.push(hitbox);
-	jumpTree.push(hitbox);
-	//climbAble.push(newbound);
-	//climbAble.push(boundary);
+    var top = new THREE.Mesh(
+        new THREE.SphereGeometry(150),
+        new THREE.MeshPhongMaterial({ color: 0x228B22 })
+    );
+    top.material.side = THREE.DoubleSide;
+    top.position.y = 185;
+    trunk.add(top);
 
 
 
+    var newbound = new THREE.Mesh(
+        new THREE.CylinderGeometry(150, 150, 380, 20),
+        new THREE.MeshLambertMaterial({ transparent: true, opacity: 0, emissive: 0x0f04ef })
+    );
+    newbound.position.y = 100;
+    trunk.add(newbound);
 
-	trunk.position.set(x, -75, z);
-	scene.add(trunk);
+    var hitbox = new THREE.Mesh(
+        new THREE.CircleGeometry(150, 20),
+        new THREE.MeshLambertMaterial({ transparent: true, opacity: 0 })
+    );
+    hitbox.position.y = -96;
+    hitbox.rotation.x = -Math.PI / 2;
+    trunk.add(hitbox);
+
+    not_allowed.push(hitbox);
+    jumpTree.push(hitbox);
+    //climbAble.push(newbound);
+    //climbAble.push(boundary);
 
 
-	return top;
+
+
+    trunk.position.set(x, -75, z);
+    scene.add(trunk);
+
+
+    return top;
 }
 var bound;
+
 function makeRock(x, z) {
-	var rock = new THREE.Mesh(
-		new THREE.IcosahedronGeometry(100, 0.9),
-		new THREE.MeshLambertMaterial({ color: 0x64696d })
-	);
+    var rock = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(100, 0.9),
+        new THREE.MeshLambertMaterial({ color: 0x64696d })
+    );
 
-	var bound = new THREE.Mesh(
-		new THREE.CubeGeometry(250, 125, 250),
-		new THREE.MeshLambertMaterial({ transparent: true, opacity: 0 })
-	);
+    var bound = new THREE.Mesh(
+        new THREE.CubeGeometry(250, 125, 250),
+        new THREE.MeshLambertMaterial({ transparent: true, opacity: 0 })
+    );
 
-	jumpAble.push(bound);
+    jumpAble.push(bound);
 
-	rock.position.set(x, -175, z);
-	scene.add(rock);
-	rock.add(bound);
+    rock.position.set(x, -175, z);
+    scene.add(rock);
+    rock.add(bound);
 
 
-	return bound;
+    return bound;
 }
 var flowers = [];
 var fo;
+
 function makeFlower(x, z) {
-	fo = new THREE.Object3D();
-	scene.add(fo);
-	var fstem = new THREE.Mesh(
-		new THREE.CylinderGeometry(7, 7, 100),
-		new THREE.MeshLambertMaterial({ color: 0x2bb700, specular: 0x3a3a3a })
-	);
-	var head = new THREE.Mesh(
-		new THREE.CubeGeometry(50, 50, 50),
-		new THREE.MeshLambertMaterial({ color: 0xf7e818, specular: 0x3a3a3a })
-	);
-	fstem.position.set(x, -150, z);
+    fo = new THREE.Object3D();
+    scene.add(fo);
+    var fstem = new THREE.Mesh(
+        new THREE.CylinderGeometry(7, 7, 100),
+        new THREE.MeshLambertMaterial({ color: 0x2bb700, specular: 0x3a3a3a })
+    );
+    var head = new THREE.Mesh(
+        new THREE.CubeGeometry(50, 50, 50),
+        new THREE.MeshLambertMaterial({ color: 0xf7e818, specular: 0x3a3a3a })
+    );
+    fstem.position.set(x, -150, z);
 
-	scene.add(fstem);
-	head.rotation.set(Math.PI / 8, -Math.PI / 8, Math.PI / 4);
-	head.position.y = 50;
+    scene.add(fstem);
+    head.rotation.set(Math.PI / 8, -Math.PI / 8, Math.PI / 4);
+    head.position.y = 50;
 
-	fstem.add(head);
+    fstem.add(head);
 
-	return fstem;
+    return fstem;
 }
 
 
 for (let i = 0; i < rand(10, 30); i++) {
-	rocks.push(makeRock(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750)));
+    rocks.push(makeRock(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750)));
 }
 for (let i = 0; i < rand(20, 40); i++) {
-	trees.push(makeTreeAt(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750)));
+    trees.push(makeTreeAt(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750)));
 }
 for (let i = 0; i < rand(0, 75); i++) {
-	flowers.push(makeFlower(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750)));
+    flowers.push(makeFlower(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750)));
 }
 
 var coin;
@@ -331,57 +334,58 @@ var cxpos;
 var czpos;
 
 function createCoin(x, z) {
-	coin = new THREE.Mesh(
-		new THREE.CylinderGeometry(75, 75, 35, 15),
-		new THREE.MeshLambertMaterial({ color: 0xFFD700 })
-	);
-	let coinCov = new THREE.Mesh(
-		new THREE.CylinderGeometry(75, 75, 30, 15),
-		new THREE.MeshBasicMaterial({
-			color: 0x3a3a3a,
-			wireframe: true,
-			wireframeLinewidth: 2
-		})
-	);
-	let coinBound = new THREE.Mesh(
-		new THREE.CircleGeometry(100, 10),
-		new THREE.MeshLambertMaterial({ transparent: true, opacity: 0 })
-	);
-	coin.rotation.x = -Math.PI / 2;
-	coinBound.position.z = -230;
-	scene.add(coin);
-	coin.add(coinCov);
-	coin.add(coinBound);
-	coinBox.push(coinBound);
+    coin = new THREE.Mesh(
+        new THREE.CylinderGeometry(75, 75, 35, 15),
+        new THREE.MeshLambertMaterial({ color: 0xFFD700 })
+    );
+    let coinCov = new THREE.Mesh(
+        new THREE.CylinderGeometry(75, 75, 30, 15),
+        new THREE.MeshBasicMaterial({
+            color: 0x3a3a3a,
+            wireframe: true,
+            wireframeLinewidth: 2
+        })
+    );
+    let coinBound = new THREE.Mesh(
+        new THREE.CircleGeometry(100, 10),
+        new THREE.MeshLambertMaterial({ transparent: true, opacity: 0 })
+    );
+    coin.rotation.x = -Math.PI / 2;
+    coinBound.position.z = -230;
+    scene.add(coin);
+    coin.add(coinCov);
+    coin.add(coinBound);
+    coinBox.push(coinBound);
 
-	coin.position.set(x, 0, z);
+    coin.position.set(x, 0, z);
 
-	return coin;
+    return coin;
 }
 
 var flowerCount = Math.floor(Math.random() * 50);
 var flowerpos = [];
 var zxui = false;
+
 function flowerBurn() {
-	for (let i = 0; i < flowers.length; i++) {
-		let vector = new THREE.Vector3(0, -1, 0);
-		let ray = new THREE.Ray(flowers[i].position, vector);
-		let intersects = ray.intersectObjects(death);
-		if (intersects.length > 0) {
-			scene.remove(flowers[i]);
-		}
-	}
+    for (let i = 0; i < flowers.length; i++) {
+        let vector = new THREE.Vector3(0, -1, 0);
+        let ray = new THREE.Ray(flowers[i].position, vector);
+        let intersects = ray.intersectObjects(death);
+        if (intersects.length > 0) {
+            scene.remove(flowers[i]);
+        }
+    }
 }
 
 function runCoin() {
-	scene.remove(coin);
-	coinBox = [];
-	createCoin(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750));
-	if (coinDT()) {
-		scene.remove(coin);
-		coinbox = [];
-		createCoin(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750));
-	}
+    scene.remove(coin);
+    coinBox = [];
+    createCoin(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750));
+    if (coinDT()) {
+        scene.remove(coin);
+        coinbox = [];
+        createCoin(Math.floor(Math.random() * 9500 - 4750), Math.floor(Math.random() * 9500 - 4750));
+    }
 }
 
 runCoin();
@@ -390,405 +394,409 @@ runCoin();
 var clock = new THREE.Clock(true);
 
 function animate() {
-	var time = clock.getElapsedTime();
+    var time = clock.getElapsedTime();
 
-	if (rand(0, -Math.sin(time) * 50) == 0 && time > 5) {
-		death.push(createDeath(rand(-tc / 2, tc / 2), rand(-tc / 2, tc / 2)));
-	}
-	while (death.length > DMP) {
-		for (let i = 0; i < rand(0, 10); i++) {
-			scene.remove(death[0]);
-			death.shift();
-		}
-	}
+    if (rand(0, -Math.sin(time) * 50) == 0 && time > 5) {
+        death.push(createDeath(rand(-tc / 2, tc / 2), rand(-tc / 2, tc / 2)));
+    }
+    while (death.length > DMP) {
+        for (let i = 0; i < rand(0, 10); i++) {
+            scene.remove(death[0]);
+            death.shift();
+        }
+    }
 
-	TWEEN.update();
-	walk();
+    TWEEN.update();
+    walk();
 
-	flowerBurn();
+    flowerBurn();
 
-	spinAvatar(direction);
-
-
-	coin.rotation.z = clock.getElapsedTime() * 2;
-	coin.position.y = Math.sin(clock.getElapsedTime() * 6) * 20;
+    spinAvatar(direction);
 
 
-	marker.position.x += xv;
-	marker.position.z += zv;
-	marker.position.y += yv;
-	direction += angle;
-	if (is_moving_forward) updateWalk(true);
-	if (is_moving_back) updateWalk(false);
-	checkForJump(jumpAllowed);
-	if (detectCoin()) scorePoints();
-
-	if (!isJumping) speed = 15;
-	if (isJumping) speed = 20;
-
-	if (marker.position.y > level) {
-		yv -= gravity;
-	}
-	if (marker.position.y < level + 5) {
-		yv = 0;
-		jumpAllowed = true;
-		checkForJump(jumpAllowed);
-	}
+    coin.rotation.z = clock.getElapsedTime() * 2;
+    coin.position.y = Math.sin(clock.getElapsedTime() * 6) * 20;
 
 
-	if (detectRock()) {
-		level = 75;
+    marker.position.x += xv;
+    marker.position.z += zv;
+    marker.position.y += yv;
+    direction += angle;
+    if (is_moving_forward) updateWalk(true);
+    if (is_moving_back) updateWalk(false);
+    checkForJump(jumpAllowed);
+    if (detectCoin()) scorePoints();
 
-		if (marker.position.y < level + 1) {
-			yv = 0;
-			jumpAllowed = true;
-			checkForJump(jumpAllowed);
-		}
-		if (marker.position.y < 75) {
-			marker.position.y += 7;
-		}
-	}
+    if (!isJumping) speed = 15;
+    if (isJumping) speed = 20;
 
-	if (detectTree()) {
-		level = 380;
-
-
-		if (marker.position.y < level + 1) {
-			yv = 0;
-			jumpAllowed = true;
-			checkForJump(jumpAllowed);
-		}
-		if (marker.position.y < level - 1 && isWalking()) {
-			yv += 7;
-			jumpAllowed = false;
-			checkForJump();
-		}
-	}
-	if (detectDeath() && marker.position.y < level + 5) {
-		if (!detectTree() && !detectRock()) {
-			respawn(true);
-		}
-	}
+    if (marker.position.y > level) {
+        yv -= gravity;
+    }
+    if (marker.position.y < level + 5) {
+        yv = 0;
+        jumpAllowed = true;
+        checkForJump(jumpAllowed);
+    }
 
 
-	if (!detectRock() && !detectTree()) {
-		level = 0;
-	}
-	if (detectCollisions()) {
-		if (marker.position.y > 370) return;
-		if (is_moving_forward) {
-			marker.position.x += -speed * Math.sin(direction);
-			marker.position.z += -speed * Math.cos(direction);
-		}
-		if (is_moving_back) {
-			marker.position.x += speed * Math.sin(direction);
-			marker.position.z += speed * Math.cos(direction);
-		}
-	}
+    if (detectRock()) {
+        level = 75;
+
+        if (marker.position.y < level + 1) {
+            yv = 0;
+            jumpAllowed = true;
+            checkForJump(jumpAllowed);
+        }
+        if (marker.position.y < 75) {
+            marker.position.y += 7;
+        }
+    }
+
+    if (detectTree()) {
+        level = 380;
+
+
+        if (marker.position.y < level + 1) {
+            yv = 0;
+            jumpAllowed = true;
+            checkForJump(jumpAllowed);
+        }
+        if (marker.position.y < level - 1 && isWalking()) {
+            yv += 7;
+            jumpAllowed = false;
+            checkForJump();
+        }
+    }
+    if (detectDeath() && marker.position.y < level + 5) {
+        if (!detectTree() && !detectRock()) {
+            respawn(true);
+        }
+    }
+
+
+    if (!detectRock() && !detectTree()) {
+        level = 0;
+    }
+    if (detectCollisions()) {
+        if (marker.position.y > 370) return;
+        if (is_moving_forward) {
+            marker.position.x += -speed * Math.sin(direction);
+            marker.position.z += -speed * Math.cos(direction);
+        }
+        if (is_moving_back) {
+            marker.position.x += speed * Math.sin(direction);
+            marker.position.z += speed * Math.cos(direction);
+        }
+    }
 }
 
 function renderGame() {
-	//requestAnimationFrame(renderGame);
+    //requestAnimationFrame(renderGame);
 
-	renderer.render(scene, camera);
+    renderer.render(scene, camera);
 }
 //animate();
 //renderGame();
 var start = 0,
-	duration = 1000 / 100;
+    duration = 1000 / 100;
 Loop();
 
 function Loop(timestamp) {
-	requestAnimationFrame(Loop);
+    requestAnimationFrame(Loop);
 
-	if (timestamp >= start) {
-		requestAnimFrame();
+    if (timestamp >= start) {
+        requestAnimFrame();
 
-		animate();
-		renderGame();
+        animate();
+        renderGame();
 
-		start = timestamp + duration;
-	}
+        start = timestamp + duration;
+    }
 }
 
 function walk() {
-	if (!isWalking()) return;
-	var position = Math.sin(clock.getElapsedTime() * 9) * 50;
-	right_hand.position.z = position;
-	left_hand.position.z = -position;
-	right_foot.position.z = -position;
-	left_foot.position.z = position;
+    if (!isWalking()) return;
+    var position = Math.sin(clock.getElapsedTime() * 9) * 50;
+    right_hand.position.z = position;
+    left_hand.position.z = -position;
+    right_foot.position.z = -position;
+    left_foot.position.z = position;
 }
 
 var direction = Math.PI;
 var angle = 0;
 
 function spinAvatar(direction) {
-	new TWEEN
-		.Tween({ y: marker.rotation.y })
-		.to({ y: direction }, 70)
-		.onUpdate(function () {
-			marker.rotation.y = this.y;
-		})
-		.start();
+    new TWEEN
+        .Tween({ y: marker.rotation.y })
+        .to({ y: direction }, 70)
+        .onUpdate(function() {
+            marker.rotation.y = this.y;
+        })
+        .start();
 }
 
 var is_moving_left, is_moving_right, is_moving_forward, is_moving_back;
 var isLeftForward, isRightForward, isLeftBack, isRightBack;
+
 function isWalking() {
-	if (xv != 0 || zv != 0) return true;
-	return false;
+    if (xv != 0 || zv != 0) return true;
+    return false;
 }
 
 function updateWalk(fb) {
-	if (fb) {
-		xv = speed * Math.sin(direction);
-		zv = speed * Math.cos(direction);
-		is_moving_forward = true;
-	}
-	if (!fb) {
-		xv = -speed * Math.sin(direction);
-		zv = -speed * Math.cos(direction);
-		is_moving_back = true;
-	}
+    if (fb) {
+        xv = speed * Math.sin(direction);
+        zv = speed * Math.cos(direction);
+        is_moving_forward = true;
+    }
+    if (!fb) {
+        xv = -speed * Math.sin(direction);
+        zv = -speed * Math.cos(direction);
+        is_moving_back = true;
+    }
 }
+
 function checkForJump(canornot) {
-	if (canornot) {
-		if (isJumping) jump();
-	}
+    if (canornot) {
+        if (isJumping) jump();
+    }
 }
 
-document.addEventListener('keydown', function (event) {
-	var code = event.keyCode;
+document.addEventListener('keydown', function(event) {
+    var code = event.keyCode;
 
 
-	if (code == 32) {
-		jump();
-	}
+    if (code == 32) {
+        jump();
+    }
 
 
-	if (code == 37 || code == 65) {                                   // left
-		angle = Math.PI / 70;
-		if (is_moving_forward) updateWalk(true);
-		if (is_moving_back) updateWalk(false);
-		checkForJump(jumpAllowed);
-	}
-	if (code == 38 || code == 87) {                                   // up
-		updateWalk(true);
-		checkForJump(jumpAllowed);
-	}
-	if (code == 39 || code == 68) {                                   // right
-		angle = -Math.PI / 70;
-		event.preventDefault();
-		if (is_moving_forward) updateWalk(true);
-		if (is_moving_back) updateWalk(false);
-		checkForJump(jumpAllowed);
-	}
-	if (code == 40 || code == 83) {                                   // down
-		updateWalk(false);
-		checkForJump(jumpAllowed);
-	}
+    if (code == 37 || code == 65) { // left
+        angle = Math.PI / 70;
+        if (is_moving_forward) updateWalk(true);
+        if (is_moving_back) updateWalk(false);
+        checkForJump(jumpAllowed);
+    }
+    if (code == 38 || code == 87) { // up
+        updateWalk(true);
+        checkForJump(jumpAllowed);
+    }
+    if (code == 39 || code == 68) { // right
+        angle = -Math.PI / 70;
+        event.preventDefault();
+        if (is_moving_forward) updateWalk(true);
+        if (is_moving_back) updateWalk(false);
+        checkForJump(jumpAllowed);
+    }
+    if (code == 40 || code == 83) { // down
+        updateWalk(false);
+        checkForJump(jumpAllowed);
+    }
 
-	if (code == 67) {
-		firstPerson++;
-		if (firstPerson > 1) firstPerson = 0;
+    if (code == 67) {
+        firstPerson++;
+        if (firstPerson > 1) firstPerson = 0;
 
-		if (firstPerson == 0) {
-			camera = fpcam;
-			marker.remove(tpcam);
+        if (firstPerson == 0) {
+            camera = fpcam;
+            marker.remove(tpcam);
 
-		}
-		if (firstPerson == 1) {
-			camera = tpcam;
-			marker.remove(fpcam);
+        }
+        if (firstPerson == 1) {
+            camera = tpcam;
+            marker.remove(fpcam);
 
-		}
-		marker.add(camera);
-	}
+        }
+        marker.add(camera);
+    }
 });
 
 
-document.addEventListener('keyup', function (event) {
-	var code = event.keyCode;
+document.addEventListener('keyup', function(event) {
+    var code = event.keyCode;
 
-	if (code == 32) {
-		isJumping = false;
-	}
+    if (code == 32) {
+        isJumping = false;
+    }
 
-	if (code == 37 || code == 65) {
-		angle = 0;
-	}
-	if (code == 38 || code == 87) {
-		xv = 0;
-		zv = 0;
-		is_moving_forward = false;
-	}
-	if (code == 39 || code == 68) {
-		angle = 0;
-	}
-	if (code == 40 || code == 83) {
-		xv = 0;
-		zv = 0;
-		is_moving_back = false;
-	}
-	if (code == 16 || code == 67) {
-		setTimeout(function () {
-			climbing = false;
-		}, 500);
-	}
+    if (code == 37 || code == 65) {
+        angle = 0;
+    }
+    if (code == 38 || code == 87) {
+        xv = 0;
+        zv = 0;
+        is_moving_forward = false;
+    }
+    if (code == 39 || code == 68) {
+        angle = 0;
+    }
+    if (code == 40 || code == 83) {
+        xv = 0;
+        zv = 0;
+        is_moving_back = false;
+    }
+    if (code == 16 || code == 67) {
+        setTimeout(function() {
+            climbing = false;
+        }, 500);
+    }
 
 
 
-	isLeftForward = false;
-	isRightForward = false;
-	isLeftBack = false;
-	isRightBack = false;
+    isLeftForward = false;
+    isRightForward = false;
+    isLeftBack = false;
+    isRightBack = false;
 });
 
 function detectCollisions() {
-	var vector = new THREE.Vector3(0, -1, 0);
-	var ray = new THREE.Ray(marker.position, vector);
-	var intersects = ray.intersectObjects(not_allowed);
-	if (intersects.length > 0) {
-		return true;
-	}
-	return false;
+    var vector = new THREE.Vector3(0, -1, 0);
+    var ray = new THREE.Ray(marker.position, vector);
+    var intersects = ray.intersectObjects(not_allowed);
+    if (intersects.length > 0) {
+        return true;
+    }
+    return false;
 }
+
 function detectClimbableObject() {
-	var vector = new THREE.Vector3(0, -1, 0);
-	var ray = new THREE.Ray(marker.position, vector);
-	var intersects = ray.intersectObjects(climbAble);
-	if (intersects.length > 0) {
-		return true;
-	}
-	return false;
+    var vector = new THREE.Vector3(0, -1, 0);
+    var ray = new THREE.Ray(marker.position, vector);
+    var intersects = ray.intersectObjects(climbAble);
+    if (intersects.length > 0) {
+        return true;
+    }
+    return false;
 }
 
 function detectRock() {
-	var vector = new THREE.Vector3(0, -1, 0);
-	var ray = new THREE.Ray(marker.position, vector);
-	var intersects = ray.intersectObjects(jumpAble);
-	if (intersects.length > 0) return true;
-	return false;
+    var vector = new THREE.Vector3(0, -1, 0);
+    var ray = new THREE.Ray(marker.position, vector);
+    var intersects = ray.intersectObjects(jumpAble);
+    if (intersects.length > 0) return true;
+    return false;
 }
 
 function detectTree() {
-	var vector = new THREE.Vector3(0, -1, 0);
-	var ray = new THREE.Ray(marker.position, vector);
-	var intersects = ray.intersectObjects(jumpTree);
-	if (intersects.length > 0) return true;
-	return false;
+    var vector = new THREE.Vector3(0, -1, 0);
+    var ray = new THREE.Ray(marker.position, vector);
+    var intersects = ray.intersectObjects(jumpTree);
+    if (intersects.length > 0) return true;
+    return false;
 }
 
 function detectCoin() {
-	var vector = new THREE.Vector3(0, -1, 0);
-	var ray = new THREE.Ray(marker.position, vector);
-	var intersects = ray.intersectObjects(coinBox);
-	if (intersects.length > 0) return true;
-	return false;
+    var vector = new THREE.Vector3(0, -1, 0);
+    var ray = new THREE.Ray(marker.position, vector);
+    var intersects = ray.intersectObjects(coinBox);
+    if (intersects.length > 0) return true;
+    return false;
 }
 
 function coinDT() {
-	var vector = new THREE.Vector3(0, -1, 0);
-	var ray = new THREE.Ray(coin.position, vector);
-	var intersects = ray.intersectObjects(jumpTree);
-	if (intersects.length > 0) return true;
-	return false;
+    var vector = new THREE.Vector3(0, -1, 0);
+    var ray = new THREE.Ray(coin.position, vector);
+    var intersects = ray.intersectObjects(jumpTree);
+    if (intersects.length > 0) return true;
+    return false;
 }
 
 function detectDeath() {
-	var vector = new THREE.Vector3(0, -1, 0);
-	var ray = new THREE.Ray(marker.position, vector);
-	var intersects = ray.intersectObjects(death);
-	if (intersects.length > 0) return true;
-	return false;
+    var vector = new THREE.Vector3(0, -1, 0);
+    var ray = new THREE.Ray(marker.position, vector);
+    var intersects = ray.intersectObjects(death);
+    if (intersects.length > 0) return true;
+    return false;
 }
 
 
 function jump() {
-	if (!jumpAllowed) return;
-	jumpAllowed = false;
-	isJumping = true;
-	animateJump();
+    if (!jumpAllowed) return;
+    jumpAllowed = false;
+    isJumping = true;
+    animateJump();
 }
 
 
 function scorePoints() {
-	animatefruit();
-	runCoin();
-	return;
+    animatefruit();
+    runCoin();
+    return;
 }
 
 var fruit;
+
 function animatefruit() {
-	if (fruit) return;
+    if (fruit) return;
 
-	fruit = new THREE.Mesh(
-		new THREE.CylinderGeometry(75, 75, 5, 25),
-		new THREE.MeshBasicMaterial({ color: 0xFFD700 })
-	);
-	if (camera == fpcam) fruit.position.z = 75;
-	if (camera == tpcam) fruit.position.z = 0;
-	fruit.rotation.x = Math.PI / 2;
+    fruit = new THREE.Mesh(
+        new THREE.CylinderGeometry(75, 75, 5, 25),
+        new THREE.MeshBasicMaterial({ color: 0xFFD700 })
+    );
+    if (camera == fpcam) fruit.position.z = 75;
+    if (camera == tpcam) fruit.position.z = 0;
+    fruit.rotation.x = Math.PI / 2;
 
-	marker.add(fruit);
-	if (camera == fpcam) {
-		new TWEEN.
-			Tween({
-				height: 15,
-				spin: 0
-			}).
-			to({
-				height: 250,
-				spin: 4
-			}, 500).
-			onUpdate(function () {
-				fruit.position.y = this.height;
-				fruit.rotation.z = this.spin;
-			}).
-			onComplete(function () {
-				marker.remove(fruit);
-				fruit = undefined;
-			}).
-			start();
-	}
-	if (camera == tpcam) {
-		new TWEEN.
-			Tween({
-				height: 150,
-				spin: 0
-			}).
-			to({
-				height: 300,
-				spin: 4
-			}, 500).
-			onUpdate(function () {
-				fruit.position.y = this.height;
-				fruit.rotation.z = this.spin;
-			}).
-			onComplete(function () {
-				marker.remove(fruit);
-				fruit = undefined;
-			}).
-			start();
-	}
+    marker.add(fruit);
+    if (camera == fpcam) {
+        new TWEEN.
+        Tween({
+            height: 15,
+            spin: 0
+        }).
+        to({
+            height: 250,
+            spin: 4
+        }, 500).
+        onUpdate(function() {
+            fruit.position.y = this.height;
+            fruit.rotation.z = this.spin;
+        }).
+        onComplete(function() {
+            marker.remove(fruit);
+            fruit = undefined;
+        }).
+        start();
+    }
+    if (camera == tpcam) {
+        new TWEEN.
+        Tween({
+            height: 150,
+            spin: 0
+        }).
+        to({
+            height: 300,
+            spin: 4
+        }, 500).
+        onUpdate(function() {
+            fruit.position.y = this.height;
+            fruit.rotation.z = this.spin;
+        }).
+        onComplete(function() {
+            marker.remove(fruit);
+            fruit = undefined;
+        }).
+        start();
+    }
 }
 
 function animateJump() {
-	yv = 30;
+    yv = 30;
 }
 
 function respawn(thing = false) {
-	marker.position.set(0, 1000, 0);
-	marker.rotation.set(0, 0, 0);
+    marker.position.set(0, 1000, 0);
+    marker.rotation.set(0, 0, 0);
 
-	if (thing) {
-		for (let i = death.length - 1; i >= 0; i--) {
-			scene.remove(death[i]);
-			death.pop();
-		}
-		death = [];
-		clock = null;
-		clock = new THREE.Clock();
-	}
+    if (thing) {
+        for (let i = death.length - 1; i >= 0; i--) {
+            scene.remove(death[i]);
+            death.pop();
+        }
+        death = [];
+        clock = null;
+        clock = new THREE.Clock();
+    }
 }
