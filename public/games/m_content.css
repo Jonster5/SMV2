@@ -1,80 +1,80 @@
 @font-face {
     font-family: 'Oswald';
-    src: url('fonts/oswald-variablefont_wght-webfont.woff2') format('woff2'),
-         url('fonts/oswald-variablefont_wght-webfont.woff') format('woff');
+    src: url('fonts/oswald-variablefont_wght-webfont.woff2') format('woff2'), url('fonts/oswald-variablefont_wght-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-  font-family: UC;
-  src: url('fonts/UbuntuCondensed-Regular.ttf') format('TrueType');
-  font-weight: normal;
-  font-style: normal;
+    font-family: UC;
+    src: url('fonts/UbuntuCondensed-Regular.ttf') format('TrueType');
+    font-weight: normal;
+    font-style: normal;
 }
 
 #title_c {
-  position: absolute;
-  text-align: center;
-  width: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
 }
 
 #title_m_txt {
-  font-family: Oswald;
-  color: Blue;
-  font-weight: 900;
-  font-size: 75px;
+    font-family: Oswald;
+    color: Blue;
+    font-weight: 900;
+    font-size: 75px;
 }
 
 #title_m_about {
-  font-family: UC;
-  display: block;
-  font-size: 20px;
-  text-align: center;
-  transition-duration: 0.4s;
+    font-family: UC;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    transition-duration: 0.4s;
 }
 
 #title_m_about:hover {
-  color: red;
-  cursor: pointer;
+    color: red;
+    cursor: pointer;
 }
 
 #dir_c {
-  position: absolute;
-  margin: 6px;
-  top: 650px;
-  height: auto;
-  width: auto;
+    position: absolute;
+    margin: 6px;
+    top: 650px;
+    height: auto;
+    width: auto;
 }
 
 article {
-  display: inline-block;
-  width: 332px;
-  height: 310px;
-  padding: 12px;
-  box-sizing: border-box;
-  background-color: rgba(0,0,0,0.5);
-  border-radius: 20px;
+    display: inline-block;
+    width: 332px;
+    height: 310px;
+    padding: 12px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin: 5px;
 }
 
 .game_img {
-  margin: 0;
-  border-radius: 20px;
-  transition-duration: 0.2s;
-  filter: grayscale(80%);
+    margin: 0;
+    border-radius: 20px;
+    transition-duration: 0.2s;
+    filter: grayscale(80%);
 }
 
 .img_title {
-  font-family: UC;
-  font-size: 30px;
-  color: #428bcf;
-  transition-duration: 0.2s;
+    font-family: UC;
+    font-size: 30px;
+    color: #428bcf;
+    transition-duration: 0.2s;
 }
 
 article:hover .game_img {
-  filter: grayscale(0%);
+    filter: grayscale(0%);
 }
 
 article:hover .img_title {
-  color: gold;
+    color: gold;
 }
