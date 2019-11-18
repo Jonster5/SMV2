@@ -5,7 +5,12 @@ class Bullet {
     this.s = s;
   }
   render() {
-    ctx.drawImage(bullet,this.x,this.y,10,10)
+    if(iceActive == false) {
+          ctx.drawImage(bullet,this.x,this.y,10,10)
+    } else {
+      ctx.drawImage(ice_bullet,this.x,this.y,10,10)
+    }
+
   }
   move(speed) {
     this.y -= speed;
@@ -28,5 +33,35 @@ class Bullet {
           }
         }
       }
+      for (let j=0; j < ices.length; j++) {
+        if(this.y <= ices[j].y) {
+          if(this.x >= ices[j].x && this.x <= ices[j].x+20) {
+            iceActive = true;
+            ices = destroy(ices, j);
+            bullets = destroy(bullets, g);
+            return;
+          }
+          if(this.x+20 >= ices[j].x && this.x+20 <= ices[j].x+20) {
+            iceActive = true;
+            ices= destroy(ices, j);
+            bullets = destroy(bullets, g);
+            }
+          }
+        }
+        for (let j=0; j < triples.length; j++) {
+          if(this.y <= triples[j].y) {
+            if(this.x >= triples[j].x && this.x <= triples[j].x+20) {
+              tripleActive = true;
+              triples = destroy(triples, j);
+              bullets = destroy(bullets, g);
+              return;
+            }
+            if(this.x+20 >= triples[j].x && this.x+20 <= triples[j].x+20) {
+              tripleActive = true;
+              triples = destroy(triples, j);
+              bullets = destroy(bullets, g);
+              }
+            }
+          }
     }
   }

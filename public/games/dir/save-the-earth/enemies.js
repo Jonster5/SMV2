@@ -5,9 +5,13 @@ class BaseEnemy {
   }
   render() {
     ctx.fillStyle = "blue";
+    if(iceActive == false) {
     ctx.drawImage(enemy,this.x,this.y,20,20)
+  } else {
+      ctx.drawImage(ice_enemy,this.x,this.y,20,20)
+    }
   }
-  move(speed) {
+  move() {
     this.y += speed
   }
   vibeCheck() {

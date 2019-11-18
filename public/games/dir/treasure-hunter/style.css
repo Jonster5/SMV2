@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url('../../fonts/oswald-variablefont_wght-webfont.woff2') format('woff2'), url('../../fonts/oswald-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: UC;
+    src: url('../../fonts/UbuntuCondensed-Regular.ttf') format('TrueType');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: rgb(50, 50, 50);
+    overflow-y: hidden;
+}
+
+#back {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    border: 6px solid #688fe3;
+    border-radius: 16px;
+    transition-duration: 0.2s;
+    text-decoration: none;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    font-family: Oswald;
+    text-align: center;
+    padding-top: 3px;
+    box-sizing: border-box;
+}
+
+img {
+    position: absolute;
+    left: 10px;
+    top: 6px;
+}
+
+#back:hover {
+    background-color: #688fe3;
+}
+
+#Game_c {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -258.5px;
+    margin-top: -258.5px;
+}
+
+canvas {
+    border-radius: 20px;
+}

@@ -60,7 +60,7 @@ article {
 .game_img {
     margin: 0;
     border-radius: 20px;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     filter: grayscale(80%);
 }
 
